@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="variables"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+        <p>
+            In addition to <code>true</code> and <code>false</code>, JavaScript also
+            defines <code>undefined</code> and <code>null</code>.
+        </p>
+        
+        <pre class="brush: js">
+            var x;               // the value of x is undefined
+            x === undefined;     // true
+            
+            var y = 1;           // the value of y is 1
+            y === undefined;     // false
+
+            var z = "undefined"; // the value of z is "undefined"
+            z === undefined;     // false
+            z === "undefined";   // true
+        </pre>
+        
+        <p>
+            The <code>typeof</code> operator returns a string indicating the type of
+            a variable.
+        </p>
+        
+        <pre class="brush: js">
+            var y = "undefined";
+            typeof y;               // returns "string"
+
+            y = undefined;
+            typeof y;               // returns "undefined"
+        </pre>
+
+        <p>
+            The <code>null</code> value indicates the variable's value is "nothing", which
+            is distinct from being undefined.
+        </p>
+        
+        <pre class="brush: js">
+            var y = "Hello";        // y is assigned a string value
+            y = null;               // y is now "nothing"
+
+            y === null;             // true
+            y === undefined;        // false
+        </pre>
+
+        <p>
+            Note that a variable's type is not static.  It can changed based on the
+            values assigned to it.
+        </p>
+
+    </div>
+    </main>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

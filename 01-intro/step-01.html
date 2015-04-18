@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<!-- JavaScript can be included here. -->
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="intro"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+        <p>Below is an example showing how to include JavaScript on a page.</p>
+
+        <pre class="brush: js">
+        &lt;body&gt;
+            &lt;script&gt;
+                // JavaScript goes here...
+            &lt;/script&gt;
+        &lt;/body&gt;
+        </pre>
+
+        <p>You can also load an external JavaScript file, typically in the
+        <code>head</code> section of the page or the end of the <code>body</code>
+        section.</p>
+
+        <pre class="brush: js">
+        &lt;head&gt;
+            &lt;script src="../js/shCore.js"&gt;&lt;/script&gt;
+            &lt;script src="../css/shBrushJScript.js"&gt;&lt;/script&gt;
+
+            &lt;link href="../css/shCore.css" /&gt;
+            &lt;link href="../css/shThemeDefault.css" /&gt;
+        &lt;/head&gt;
+        </pre>
+
+        <p>You can copy the <code>&lt;script&gt;</code> elements above into
+        the <code>&lt;head&gt;</code> section of this page and refresh the page.
+        This will cause the JavaScript files to be loaded into the browser
+        when the page loads.</p>
+
+    </div>
+    </main>
+
+	<script src="../js/nav.js"></script>
+</body>
+
+</html>

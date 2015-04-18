@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript Variables</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="variables"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+        <p>
+            Variables can be compared with operators common to many other
+            programming languages.
+        </p>
+        
+        <pre class="brush: js">
+            a == b;	    // equality
+            a != b;     // inequality
+            a > b;      // greater than
+            a >= b;     // greater than or equal
+            a < b;      // less than
+            a <= b;     // less than or equal
+        </pre>
+        
+        <p>
+            Comparison statements are evaluated as boolean values - they are
+            <code>true</code> or <code>false</code>. However, JavaScript uses
+            the concept of "truthiness" in its comparisons. The comparison
+            operators will attempt to convert between types if the conversion
+            provides a more meaningful comparison.  You can experiment with this
+            conversion in the Chrome Developer Tools console window.
+        </p>
+        
+        <pre class="brush: js">
+            "5" == 5;	// true
+            "5" > 4;    // true
+            8 < "10";   // true
+            "8" < "10"; // false
+        </pre>
+
+    </div>
+    </main>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

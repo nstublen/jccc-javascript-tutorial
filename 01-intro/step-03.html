@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="intro"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+        <p>JavaScript is executed as the browser works its way down the
+        page.</p>
+
+        <p>You can observe this using the browser's <code>document</code>
+        object to write content to the page.</p>
+
+        <pre class="brush: js">
+        &lt;body&gt;
+            &lt;script&gt;
+                document.write("Hello!");
+            &lt;/script&gt;
+        &lt;/body&gt;
+        </pre>
+
+        <p>You can interleave <code>&lt;script&gt;</code> with HTML to see
+        how the browser executes JavaScript as it renders the page.</p>
+        <p>This is important to remember since it means that <code>&lt;script&gt;</code>
+        at the top of the page can't access elements that have not yet been
+        rendered by the browser.</p>
+
+    </div>
+    </main>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

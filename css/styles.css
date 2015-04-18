@@ -1,0 +1,63 @@
+html {
+    height: 100%
+}
+    
+body {
+    width: 600px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+main {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-wrapper {
+    flex: 1;
+    position: relative;
+}
+      
+.scrollable {
+    position: absolute;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-right: 10px;
+}
+
+p code {
+	background-color: #c0c0c0;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+h1 {
+    background-color: lightblue;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+    width: 50px;
+}
+
+p pre {
+    display: inline;
+}
