@@ -12,16 +12,70 @@
 </head>
 
 <body>
-    <header data-section="undefined"><h1></h1><nav></nav></header>
+    <header data-section="objects"><h1></h1><nav></nav></header>
     
     <main class="scroll-wrapper">
     <div class="scrollable">
+    
+	<h2>Objects</h2>
 
-	<h2>Section Topic</h2>
+	<p>
+		A JavaScript object is a flexible data type that stores multiple values. Each
+		value is identified by a unique property name within the object.  The syntax
+        for declaring an object is similar to CSS.
+	</p>
+
+	<pre class="brush: js">
+		var person = {
+		    firstName: "John",
+			lastName: "Smith",
+			age: 33
+		};
+	</pre>
+
+	<p>
+		An object property can be another object.
+	</p>
+
+	<pre class="brush: js">
+		var person = {
+		    firstName: "John",
+			lastName: "Smith",
+			age: 33,
+			address: {
+			    street: "12345 College Blvd",
+                city: "Overland Park",
+                state: "KS",
+                zip: "66210"
+			}
+		};
+	</pre>
+
+    <p>
+        Object properties are accessed using a dot or bracket notation.
+    </p>
+
+	<pre class="brush: js">
+		person.firstName;
+        person['firstName'];
+
+		person.lastName;
+        person['lastName'];
+
+		person.address.state;
+		person.address['state'];
+        person['address'].state;
+        person['address']['state'];
+	</pre>
+    
+    <p>
+        How would you create an object that represents a product in a
+        catalog?
+    </p>
 
     </div>
     </main>
-
+    
 	<script src="../js/nav.js"></script>
     <script type="text/javascript">
         SyntaxHighlighter.all();

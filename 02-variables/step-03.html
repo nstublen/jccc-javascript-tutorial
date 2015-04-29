@@ -28,15 +28,20 @@
             var value2 = '5.0';
         </pre>
 
+        <div class="progressive1">
         <p>
             Why would you want to choose one form over the other?
         </p>
-
+        </div>
+        
+        <div class="progressive2">
         <pre class="brush: js">
             var value1 = "What's a string?";
             var value2 = 'He said, "What is a string?"';
         </pre>
+        </div>
 
+        <div class="progressive3">
         <p>
             Quotation marks can be included by preceding them with a forward slash (\).
         </p>
@@ -45,7 +50,24 @@
             var value1 = 'What\'s a string?';
             var value2 = "He said, \"What's a string?\"";
         </pre>
-        
+        </div>
+
+        <div class="progressive4">
+        <h3>Working with Strings</h3>
+        <pre class="brush: js">
+            var text = "Welcome to JavaScript!";
+            text.indexOf(" ");      // 7
+            text.indexOf(" ", 8);   // 10
+            text.lastIndexOf(" ");  // 10
+            text.charAt(6);         // "e"
+            text[6];                // "e"
+            text.substring(8, 10);  // "to"
+            text.startsWith("Wel"); // true
+            text.endsWith("pt!");   // true
+            text.length;            // 22
+            text + "!";             // "Welcome to JavaScript!!"
+        </pre>
+        </div>
     </div>
     </main>
 

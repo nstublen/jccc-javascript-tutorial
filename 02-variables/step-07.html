@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript Variables</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="variables"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+        <h2>Strict Equality</h2>
+
+        <p>
+            The "truthiness" comparisons can be avoided with different operators.
+        </p>
+        
+        <pre class="brush: js">
+            a === b;     // strict equality
+            a !== b;     // strict inequality
+        </pre>
+        
+        <p>
+            These statements are <code>true</code> or <code>false</code>, based
+            on the variable's type <em>and</em> value.
+        </p>
+        
+        <pre class="brush: js">
+            "5" == 5;   // true
+            "5" === 5;  // false
+        </pre>
+
+        <p>
+            In general, I would suggest using the strict comparison operators
+            unless you are intentionally allowing the conversion.  The conversion
+            is convenient, for example, when analysing a numeric value entered
+            into a text field.
+        </p>
+
+    </div>
+    </main>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

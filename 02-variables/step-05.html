@@ -17,31 +17,37 @@
     <main class="scroll-wrapper">
     <div class="scrollable">
 
+        <h2>Logical Comparison</h2>
+        
         <p>
-            The "truthiness" comparisons can be avoided with different operators.
+            Variables can be compared with operators common to many other
+            programming languages.
         </p>
         
         <pre class="brush: js">
-            a === b;     // strict equality
-            a !== b;     // strict inequality
+            a == b;	    // equality
+            a != b;     // inequality
+            a > b;      // greater than
+            a >= b;     // greater than or equal
+            a < b;      // less than
+            a <= b;     // less than or equal
         </pre>
         
         <p>
-            These statements are <code>true</code> or <code>false</code>, based
-            on the variable's type <em>and</em> value.
+            Comparison statements are evaluated as boolean values - they are
+            <code>true</code> or <code>false</code>. However, JavaScript uses
+            the concept of "truthiness" in its comparisons. The comparison
+            operators will attempt to convert between types if the conversion
+            provides a more meaningful comparison.  You can experiment with this
+            conversion in the Chrome Developer Tools console window.
         </p>
         
         <pre class="brush: js">
-            "5" == 5;   // true
-            "5" === 5;  // false
+            "5" == 5;	// true
+            "5" > 4;    // true
+            8 < "10";   // true
+            "8" < "10"; // false
         </pre>
-
-        <p>
-            In general, I would suggest using the strict comparison operators
-            unless you are intentionally allowing the conversion.  The conversion
-            is convenient, for example, when analysing a numeric value entered
-            into a text field.
-        </p>
 
     </div>
     </main>

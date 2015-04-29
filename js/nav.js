@@ -3,23 +3,46 @@ var _sections =
     {
         name: 'intro',
         title: 'Introduction to JavaScript',
-        steps: 3
+        steps: ['', '', '']
     },
     {
         name: 'variables',
         title: 'JavaScript Variables',
-        steps: 6
+        steps: ['', 'Numbers', 'Strings', 'Booleans', 'Logical Comparison',
+                'Logical Operators', 'Strict Equality',
+                'Undefined and Null Values']
+    },
+    {
+        name: 'exercise-01',
+        title: 'Exercise 1',
+        steps: ['', '', '']
     },
     {
         name: 'functions',
         title: 'JavaScript Functions',
-        steps: 1
+        steps: ['Functions', 'Unspecified Parameters']  
     },
     {
         name: 'objects',
         title: 'JavaScript Objects',
-        steps: 3
-    }
+        steps: ['Objects', 'Objects', 'Arrays']
+    },
+    {
+        name: 'exercise-02',
+        title: 'Exercise 2',
+        steps: ['']
+    },
+    {
+        name: 'function-objects',
+        title: 'Function Objects',
+        steps: ['Function Variables', 'Functions Without Names',
+                'Functions as Object Properties', 'The document Object']
+    },
+    {
+        name: 'exercise-03',
+        title: 'Exercise 3',
+        steps: 2
+    },
 ];
 
 function findSectionInfo(sectionName) {
@@ -38,14 +61,48 @@ function createIndexLinkElement() {
     return anchor;
 }
 
-function createStepLinkElement(step) {
+function createIntroLinkElement() {
+    var anchor = document.createElement("a");
+    anchor.href = "./intro.html";
+    anchor.innerHTML = "Intro";
+    return anchor;
+}
+
+function createSectionLinkElement(number, section) {
+    var numberString = ((number < 10) ? "0" : "") + number;
+    var anchor = document.createElement("a");
+    anchor.href = "./" + numberString + "-" + section.name + "/intro.html";
+    anchor.innerHTML = numberString + " - " + section.title;
+    return anchor;
+}
+
+function createStepLinkElement(step, title) {
     var anchor = document.createElement("a");
     anchor.href = "./step-" + ((step < 10) ?  "0" : "") + step + ".html";
+    anchor.setAttribute("title", title);
     anchor.innerHTML = "Step " + step;
     return anchor;
 }
 
+function insertContentLinks(sections) {
+    var ul = document.createElement("ul");
+
+    for (var step = 1; step <= sections.length; ++step) {
+        li = document.createElement("li");
+        anchor = createSectionLinkElement(step, sections[step - 1]);
+        li.appendChild(anchor);
+        ul.appendChild(li);
+    }
+    
+    var contents = document.getElementById("contents");
+    if (contents) {
+        contents.appendChild(ul);
+    }
+}
+
 function insertNavLinks(header, sectionInfo) {
+    var anchors = [];
+    
     var navs = header.getElementsByTagName("nav");
     for (var navIndex = 0; navIndex < navs.length; ++navIndex) {
         var nav = navs[navIndex];
@@ -56,29 +113,47 @@ function insertNavLinks(header, sectionInfo) {
         var anchor = createIndexLinkElement();
         li.appendChild(anchor);
         ul.appendChild(li);
+        anchors = anchors.concat(anchor);
+
+        var li = document.createElement("li");
+        var anchor = createIntroLinkElement();
+        li.appendChild(anchor);
+        ul.appendChild(li);
+        anchors = anchors.concat(anchor);
         
-        for (var step = 1; step <= sectionInfo.steps; ++step) {
+        for (var step = 1; step <= sectionInfo.steps.length; ++step) {
             li = document.createElement("li");
-            anchor = createStepLinkElement(step);
+            anchor = createStepLinkElement(step, sectionInfo.steps[step - 1]);
             li.appendChild(anchor);
             ul.appendChild(li);
+            anchors = anchors.concat(anchor);
         }
         
         nav.appendChild(ul);
+    }
+    
+    for (var anchorIndex = 0; anchorIndex < anchors.length; ++anchorIndex) {
+        anchor = anchors[anchorIndex];
+        if (anchor.href === window.location.href) {
+            anchor.setAttribute('style', 'font-weight: bold; text-decoration: none');
+            break;
+        }
     }
 }
 
 function updateHeader() {
     var header = document.getElementsByTagName("header");
-    var sectionName = header[0].getAttribute("data-section");
+    if (header.length > 0) {
+        var sectionName = header[0].getAttribute("data-section");
 
-    var sectionInfo = findSectionInfo(sectionName);
-    if (!sectionInfo) {
-        return;
+        var sectionInfo = findSectionInfo(sectionName);
+        if (!sectionInfo) {
+            return;
+        }
+
+        updateTitle(header[0], sectionInfo);
+        insertNavLinks(header[0], sectionInfo);
     }
-
-    updateTitle(header[0], sectionInfo);
-    insertNavLinks(header[0], sectionInfo);
 }
 
 function updateTitle(header, sectionInfo) {
@@ -93,4 +168,38 @@ function updateTitle(header, sectionInfo) {
     }
 }
 
+function initProgressiveReveal() {
+    var nextReveal = 1;
+    
+    function handleClick(e) {
+        var elements = document.querySelectorAll(".progressive" + nextReveal);
+        for (var elementIndex = 0; elementIndex < elements.length; ++elementIndex) {
+            var element = elements[elementIndex];
+            var classIndex = element.className.indexOf("progressive" + nextReveal);
+            element.className = element.className.slice(0, classIndex) + " " + element.className.slice(classIndex + 13);
+        }
+        nextReveal++;
+    }
+    
+    function prepareClicks() {
+        document.addEventListener('click', handleClick);
+    }
+    
+    function prepareReveal() {
+        for (var index = 1; index <= 8; ++index) {
+            var elements = document.querySelectorAll(".progressive" + index);
+            for (var elementIndex = 0; elementIndex < elements.length; ++elementIndex) {
+                var element = elements[elementIndex];
+                element.className = "progressive " + element.className;
+            }
+        }
+    }
+    
+    prepareReveal();
+    prepareClicks();
+}
+
 updateHeader();
+insertContentLinks(_sections);
+
+initProgressiveReveal();

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="exercise-01"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+        <h2>Exercise 1-B</h2>
+
+        <p>
+            In this exercise, we will sum a string of digits.
+        </p>
+        <p>
+            We will continue using the files in the <strong>"03-exercise-01"</strong>
+            folder as a starting point and proceed with the following steps:
+        </p>
+
+        <ol>
+        <li>Declare a string variable containing any 5 digits (ex. "92652").</li>
+        <li>Find the sum of the digits.</li>
+        <li>Find the sum of the odd digits.</li>
+        </ol>
+
+        <script>
+            var digits = "12345";
+            var sum = 0;
+            var odds = 0;
+            for (var index = 0; index < digits.length; ++index) {
+                sum = sum + Number(digits[index]);
+                if (digits[index] % 2 !== 0) {
+                    odds = odds + Number(digits[index]);
+                }
+            }
+            document.write("<code>");
+            document.write(digits + " -> " + sum);
+            document.write("<br/>");
+            document.write(digits + " -> " + odds);
+            document.write("</code>");
+        </script>
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

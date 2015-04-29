@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Exercise 01 - Variables</title>	
+</head>
+
+<body>
+    <header>
+        <h1>Exercise 01 - Variables</h1>
+    </header>
+    
+    <main>
+    <div class="scrollable">
+    
+        <h2>Exercise 1-C</h2>
+
+        <p>
+            In this exercise, we will reverse a string.
+        </p>
+        <p>
+            We will continue using the files in the <strong>"03-exercise-01"</strong>
+            folder as a starting point and proceed with the following steps:            
+        </p>
+
+        <ol>
+        <li>Declare a string variable containing any value.</li>
+        <li>Reverse the string.</li>
+        </ol>
+
+        <script>
+            var text = "Welcome!";
+            var reversed = "";
+            for (var index = 0; index < text.length; ++index) {
+                reversed = text[index] + reversed;
+            }
+            document.write("<code>");
+            document.write(text + " -> " + reversed);
+            document.write("</code>");
+        </script>
+
+    </div>
+    </main>
+
+    </body>
+
+</html>

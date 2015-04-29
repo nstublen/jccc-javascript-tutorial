@@ -61,3 +61,13 @@ nav ul li {
 p pre {
     display: inline;
 }
+
+.progressive {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.progressive1, .progressive2, .progressive3, .progressive4,
+.progressive5, .progressive6, .progressive7, .progressive8 {
+    opacity: 0;
+}
