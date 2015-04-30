@@ -172,16 +172,25 @@ function initProgressiveReveal() {
     var nextReveal = 1;
     
     function handleClick(e) {
+        if (e.type === "keydown" && e.keyCode != 13 && e.keyCode != 32) {
+            return;
+        }
+
         var elements = document.querySelectorAll(".progressive" + nextReveal);
-        for (var elementIndex = 0; elementIndex < elements.length; ++elementIndex) {
-            var element = elements[elementIndex];
-            var classIndex = element.className.indexOf("progressive" + nextReveal);
-            element.className = element.className.slice(0, classIndex) + " " + element.className.slice(classIndex + 13);
+        if (elements.length > 0) {
+            for (var elementIndex = 0; elementIndex < elements.length; ++elementIndex) {
+                var element = elements[elementIndex];
+                var classIndex = element.className.indexOf("progressive" + nextReveal);
+                element.className = element.className.slice(0, classIndex) + " " + element.className.slice(classIndex + 13);
+            }
+        } else {
+            document.body.setAttribute("style", "border-color: lime");
         }
         nextReveal++;
     }
     
     function prepareClicks() {
+        document.addEventListener('keydown', handleClick);
         document.addEventListener('click', handleClick);
     }
     
