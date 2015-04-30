@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="page-elements"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Finding Elements</h2>
+
+	<p>
+		The browser provides a <code>document</code> object that can be used to
+        access elements on the page.
+	</p>
+
+	<pre class="brush: js">
+        // Locates element with id="username"
+		document.getElementById("username");
+
+        // Locates all button elements
+        document.getElementsByTagName("button");
+
+        // Locates all class="active" elements
+        document.getElementsByClassName("active");
+	</pre>
+
+	<div class="progressive1">
+	<p>
+		Newer browsers will also support CSS-style selectors.
+	</p>
+
+	<pre class="brush: js">
+        // Query the first button with the active class.
+        document.querySelector("button.active");
+
+        // Query all buttons with the active class.
+        document.querySelectorAll("button.active");
+	</pre>
+	</div>
+
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

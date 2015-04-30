@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="objects"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+	<h2>Browser Objects</h2>
+
+	<p>
+		The browser provides access to some built-in objects.
+	</p>
+
+	<pre class="brush: js">
+		window;
+        navigator;
+        document;
+	</pre>
+
+	<p id="p2" class="sample">
+		The document object can be used to access elements on the page.
+	</p>
+
+	<pre class="brush: js">
+        var paragraphs = document.getElementsByTagName("p");
+        var element = document.getElementById("p2");
+        var classes = document.getElementsByClassName("brush");
+    </pre>
+
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

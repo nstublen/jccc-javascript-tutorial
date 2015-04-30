@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="functions"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Functions</h2>
+
+    <p>
+        Functions allow you to group statements together into reusable units.
+    </p>
+    
+    <pre class="brush: js">
+        function calculateSalesTax(amount) {
+            return amount * 0.085;
+        }
+    </pre>
+    
+    <p>
+        This function's <em>name</em> is <code>calculateSalesTax</code>.  It
+        receives single numeric <em>parameter</em>, <code>amount</code>, and
+        <em>returns</em> a numeric result.
+    </p>
+
+    <pre class="brush: js">
+        var tax = calculateSalesTax(39.95);
+    </pre>
+    
+    <p class="progressive1">
+        It is possible to call a function without passing all the
+        parameters. Try it in the console window and see what happens.
+    </p>
+    
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

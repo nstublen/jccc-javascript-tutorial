@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="page-elements"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+	<h2>Creating Elements</h2>
+
+	<p>
+		The <code>document</code> also allows us to create new elements.
+	</p>
+
+	<pre class="brush: js">
+        var myDiv = document.createElement("div");
+        var myButton = document.createElement("button");
+	</pre>
+
+    <div class="progressive1">
+	<p>
+		Once we've created an element, we can set its HTML attributes and
+        inline styles.
+	</p>
+
+	<pre class="brush: js">
+        myButton.setAttribute("class", "active");
+        myButton.style.border = "1px solid red";
+        myButton.innerHTML = "Click Me";
+    </pre>
+    </div>
+
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

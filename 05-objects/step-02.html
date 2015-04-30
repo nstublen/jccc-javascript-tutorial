@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="objects"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+	<h2>Objects</h2>
+
+	<p>
+		An object can have properties dynamically added after it has been created.
+	</p>
+
+	<pre class="brush: js">
+		var person = {};            // an empty object
+        person.firstName = "John";
+		person.lastName = "Smith";
+		person.age = 33;
+	</pre>
+
+    <div class="progressive1">
+	<p>
+		Two object-type variables are equal if they refer to the same object.
+        Unlike numbers, strings, and boolean variables, identical content does
+        not mean equality.
+	</p>
+
+	<pre class="brush: js">
+		var a = {};     // "a" refers to a new object
+        var b = {};     // "b" refers to a new object
+        
+        a === b;        // false: "a" and "b" do not refer to
+                        // the same object
+
+        var c = a;      // "c" refers to the same object as "a"
+        
+        a === c;        // true: "a" and "c" do refer to the
+                        // same object
+        
+        a.value = 6;    // the object referenced by "a" now has
+                        // a "value" property
+        c.value === 6;  // referencing the object through "c"
+                        // references that same property
+    </pre>
+    </div>
+
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

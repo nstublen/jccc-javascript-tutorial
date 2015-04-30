@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="functions"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Unspecified Parameters</h2>
+
+    <p>
+        Unspecified parameters are <code>undefined</code> when the function
+        executes.
+    </p>
+    
+    <pre class="brush: js">
+        function calculateSalesTax(amount) {
+            if (amount === undefined) {
+                return 0;
+            }
+            return amount * 0.085;
+        }
+    </pre>
+    
+    <p>
+        Assigning default values within a function is one way to implement
+        optional parameters. However, since all parameters are optional, you
+        need to make sure you are calling a function as expected.
+    </p>
+
+    <div class="progressive1">
+        <p>
+            What do you think might happen if you specify more parameters
+            than a function expects?
+        </p>
+
+        <pre class="brush: js">
+            var tax = calculateSalesTax(39.95, 41.95, 59.99);
+        </pre>
+    </div>
+    
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

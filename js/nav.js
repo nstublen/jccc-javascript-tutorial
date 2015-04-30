@@ -28,6 +28,11 @@ var _sections =
         steps: ['Objects', 'Objects', 'Arrays']
     },
     {
+        name: 'page-elements',
+        title: 'Page Elements',
+        steps: ['Finding Elements', 'Creating Elements', 'Inserting Elements']
+    },
+    {
         name: 'exercise-02',
         title: 'Exercise 2',
         steps: ['']

@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="objects"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+	<h2>Arrays</h2>
+
+	<p>
+		While objects contain a set of property values that are accessed
+        by name, <em>arrays</em> contain a set of values that are accessed
+        by an index number.
+	</p>
+
+	<pre class="brush: js">
+		var list = [1, 2, 3, 4, 5];
+        
+        list[0] === 1;  // array index values start at zero
+        list[1] === 2;
+        list[5] === 6;  // false - list[5] is undefined
+	</pre>
+
+	<pre class="brush: js">
+        var list = [];      // create an empty array
+        
+        list[5] = "John";   // Insert an element in the array
+                            // at index position 5; positions
+                            // 0-4 are undefined
+    </pre>
+
+    <div class="progressive1">
+    <p>
+        Array elements do not need to be the same type.
+    </p>
+    
+	<pre class="brush: js">
+        var list = [];      // create an empty array
+        
+        list[0] = "John";   // insert a string
+        list[1] = 19;       // insert a number
+        list[2] = {};       // insert an empty object
+        list[3] = [];       // insert an empty array
+    </pre>
+    </div>
+
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>
