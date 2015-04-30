@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Exercise 02 - Shopping List</title>
+</head>
+
+<style>
+    input:checked + span {
+        text-decoration: line-through;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Exercise 02 - Shopping List</h1>
+    </header>
+    
+    <main>
+        <!-- The shopping list HTML does here. -->
+        <div class="shoplist-item">
+            <input type="checkbox" />
+            <span class="incomplete">&nbsp;</span>
+            <button>Delete</button>
+        </div>
+    </main>
+
+    <script>
+        // The shopping list JavaScript goes here (for now).
+
+        function createShoppingListItem(itemName, quantity) {
+            return {
+                itemName: itemName,
+                quantity: quantity,
+                complete: false
+            }
+        }
+
+        function addItemElementToList(root, item) {
+            var newElement = document.createElement("div");
+
+            var checkbox = document.createElement("input");
+            checkbox.setAttribute("type", "checkbox");
+            newElement.appendChild(checkbox);
+
+            var itemName = document.createElement("span");
+            itemName.innerHTML = item.itemName;
+            if (item.quantity > 1) {
+                itemName.innerHTML += " (x" + item.quantity + ")";
+            }
+            newElement.appendChild(itemName);
+
+            var del = document.createElement("button");
+            del.innerHTML = "Delete";
+            newElement.appendChild(del);
+
+            root.appendChild(newElement);
+        }
+
+    </script>
+    
+    </body>
+
+</html>
