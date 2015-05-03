@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="objects"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Pass by Value</h2>
+
+    <p>
+        Primitive data types (i.e. Number, String, Boolean) are passed to
+        functions <em>by value</em>.
+    </p>
+    
+    <pre class="brush: js">
+        function uppercase(text) {
+            // Change the value of "text"
+            text = text.toUpperCase();
+            return text;
+        }
+
+        var test = "hello";
+        var upper = uppercase(test);
+    </pre>
+
+    <div class="progressive1">
+        <h2>Pass by Reference</h2>
+
+        <p>
+            Objects and arrays are passed <em>by reference</em>.
+        </p>
+
+        <pre class="brush: js">
+            function uppercase(text) {
+                // Change the value of "text"
+                for (var index = 0; index < text.length; ++index) {
+                    text[index] = text[index].toUpperCase();
+                }
+                return text;
+            }
+
+            var test = ["hello", "hi", "greetings"];
+            var upper = uppercase(test);
+        </pre>
+    </div>
+
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

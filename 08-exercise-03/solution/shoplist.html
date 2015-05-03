@@ -27,6 +27,24 @@
         .shoplist-item button {
             flex-grow: 0;
         }
+
+        #shopitem-entry {
+            display: flex;
+            flex-direction: row;
+            width: 400px;
+        }
+
+        #shopitem-entry input[name="itemName"] {
+            flex: 3;
+        }
+        #shopitem-entry input[name="quantity"] {
+            flex: 1;
+            margin-left: 5px;
+        }
+        #shopitem-entry input[name="submit"] {
+            flex: 1;
+            margin-left: 5px;
+        }
     </style>
 </head>
 
@@ -37,11 +55,11 @@
     
     <main>
         <!-- The shopping list HTML goes here. -->
-        <div class="shoplist-item">
-            <input type="checkbox" />
-            <span class="incomplete">&nbsp;</span>
-            <button>Delete</button>
-        </div>
+        <form id="shopitem-entry">
+            <input type="text" name="itemName" />
+            <input type="text" name="quantity" />
+            <input type="submit" name="submit" value="Add" />
+        </form>
     </main>
 
     <script>
@@ -78,6 +96,20 @@
             root.appendChild(newElement);
         }
 
+        function gatherItemFromForm(formId) {
+            var item = {};
+            var form = document.getElementById(formId);
+            if (form) {
+                var inputs = form.getElementsByTagName("input");
+                for (var index = 0; index < inputs.length; ++index) {
+                    var name = inputs[index].getAttribute("name")
+                    var value = inputs[index].value;
+                    item[name] = value;
+                }
+            }
+            item.complete = false;
+            return item;
+        }
     </script>
     
     </body>

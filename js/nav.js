@@ -20,12 +20,12 @@ var _sections =
     {
         name: 'functions',
         title: 'JavaScript Functions',
-        steps: ['Functions', 'Unspecified Parameters']  
+        steps: ['Functions', 'Unspecified Parameters', 'The arguments Property']
     },
     {
         name: 'objects',
         title: 'JavaScript Objects',
-        steps: ['Objects', 'Objects', 'Arrays']
+        steps: ['Objects', 'Objects', 'Arrays', 'Pass by Value and Reference']
     },
     {
         name: 'page-elements',
@@ -38,10 +38,22 @@ var _sections =
         steps: ['']
     },
     {
+        name: 'exercise-03',
+        title: 'Exercise 3',
+        steps: ['']
+    },
+    {
         name: 'function-objects',
         title: 'Function Objects',
         steps: ['Function Variables', 'Functions Without Names',
-                'Functions as Object Properties', 'The document Object']
+            'Functions as Object Properties'/*, 'The document Object'*/]
+    },
+    {
+        name: 'events',
+        title: 'Events',
+        steps: ['Event Properties', 'Multiple Handlers', 'Mouse Events',
+                'Keyboard Events', 'Frame/Object Events', 'Form Events',
+                'Event Objects']
     },
     {
         name: 'exercise-03',
@@ -187,6 +199,7 @@ function initProgressiveReveal() {
                 var element = elements[elementIndex];
                 var classIndex = element.className.indexOf("progressive" + nextReveal);
                 element.className = element.className.slice(0, classIndex) + " " + element.className.slice(classIndex + 13);
+                element.scrollIntoView(false);
             }
         } else {
             document.body.setAttribute("style", "border-color: lime");

@@ -3,6 +3,31 @@
 
 <head>
 	<title>Exercise 02 - Shopping List</title>
+
+    <style>
+        input:checked + span {
+            text-decoration: line-through;
+        }
+
+        .shoplist-item {
+            display: flex;
+            flex-direction: row;
+            width: 400px;
+            padding: 2px;
+        }
+
+        .shoplist-item input {
+            flex-grow: 0;
+        }
+
+        .shoplist-item span {
+            flex-grow: 1;
+        }
+
+        .shoplist-item button {
+            flex-grow: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -11,7 +36,7 @@
     </header>
     
     <main>
-        <!-- The shopping list HTML does here. -->
+        <!-- The shopping list HTML goes here. -->
     </main>
 
     <script>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="functions"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>The <code>arguments</code> Property</h2>
+
+    <p>
+        A better way to determine if parameters were passed to a function
+        is to use the functions <code>arguments</code> property.
+    </p>
+    
+    <pre class="brush: js">
+        function calculateSalesTax(amount) {
+            if (arguments.length < 1) {
+                return 0;
+            }
+            return amount * 0.085;
+        }
+    </pre>
+
+    <div class="progressive1">
+        <p>
+            The <code>arguments</code> property will allow you to access
+            any extra parameters that were passed to the function.
+        </p>
+
+        <pre class="brush: js">
+            function calculateSalesTax() {
+                var subtotal = 0;
+                for (var index = 0; index < arguments.length; ++index) {
+                    subtotal += arguments[index];
+                }
+                return subtotal * 0.085;
+            }
+
+            var tax = calculateSalesTax(39.95, 41.95, 59.99);
+        </pre>
+    </div>
+    
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>
