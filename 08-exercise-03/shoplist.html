@@ -49,8 +49,8 @@
 
         function createShoppingListItem(itemName, quantity) {
             return {
-                itemName: itemName,
-                quantity: quantity,
+                itemName: itemName || "",
+                quantity: quantity || 1,
                 complete: false
             }
         }

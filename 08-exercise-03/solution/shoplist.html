@@ -56,8 +56,8 @@
     <main>
         <!-- The shopping list HTML goes here. -->
         <form id="shopitem-entry">
-            <input type="text" name="itemName" />
-            <input type="text" name="quantity" />
+            <input type="text" name="itemName" placeholder="Item" />
+            <input type="num" name="quantity" placeholder="Quantity"/>
             <input type="submit" name="submit" value="Add" />
         </form>
     </main>
@@ -67,8 +67,8 @@
 
         function createShoppingListItem(itemName, quantity) {
             return {
-                itemName: itemName,
-                quantity: quantity,
+                itemName: itemName || "",
+                quantity: quantity || 1,
                 complete: false
             }
         }
@@ -96,19 +96,20 @@
             root.appendChild(newElement);
         }
 
-        function gatherItemFromForm(formId) {
-            var item = {};
+        function gatherItemFromForm(formId, item) {
             var form = document.getElementById(formId);
             if (form) {
                 var inputs = form.getElementsByTagName("input");
                 for (var index = 0; index < inputs.length; ++index) {
+                    if (inputs[index].type === "submit") {
+                        continue;
+                    }
                     var name = inputs[index].getAttribute("name")
                     var value = inputs[index].value;
                     item[name] = value;
                 }
             }
             item.complete = false;
-            return item;
         }
     </script>
     
