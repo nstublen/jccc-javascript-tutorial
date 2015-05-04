@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="function-objects"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Functions As Object Properties</h2>
+
+    <p>
+        Since we can assign functions to variables, we can also assign them
+        to object properties.
+    </p>
+    
+    <pre class="brush: js">
+        var calculator = {
+            add: function (a, b) {
+                return a + b;
+            },
+            subtract: function(a, b) {
+                return a - b;
+            }
+        };
+    </pre>
+
+    <div class="progressive1">
+    <p>
+        We can call these functions by referencing them like object properties.
+    </p>
+
+    <pre class="brush: js">
+        var sum = calculator.add(1, 1);
+        var difference = calculator.subtract(1, 1);
+    </pre>
+    
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

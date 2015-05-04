@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="function-objects"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Functions as Function Parameters</h2>
+
+    <p>
+        Now that we've referenced the function using a variable, what if
+        we passed that variable to another function?
+    </p>
+    
+    <pre class="brush: js">
+        function calculateSalesTax(amount) {
+            return amount * 0.085;
+        }
+
+        function calculateShipping(amount) {
+            return amount * 0.085;
+        }
+        
+        var taxCalculator = calculateSalesTax;
+        var shippingCalculator = calculateShipping;
+        
+        var subtotal = 99.95;
+        var total = calculateTotal(subtotal, taxCalculator,
+                                   shippingCalculator);
+    </pre>
+    
+    <p>
+        We might implement <code>calculateTotal</code> as follows.
+    </p>
+
+    <pre class="brush: js">
+        function calculateTotal(subtotal, taxCalculator,
+                                shippingCalculator) {
+            var total = subtotal +
+                        taxCalculator(subtotal) +
+                        shippingCalculator(subtotal);
+            return total;
+        }
+    </pre>
+
+    <p>
+        We have called the calculator functions from within another
+        function.  However, we could have skipped a step in the first
+        block of code.  We could have passed the function names directly
+        to the <code>calculateTotal</code> function:
+    </p>
+    
+    <pre class="brush: js">
+        function calculateSalesTax(amount) {
+            return amount * 0.085;
+        }
+
+        function calculateShipping(amount) {
+            return amount * 0.05;
+        }
+        
+        var subtotal = 99.95;
+        var total = calculateTotal(subtotal,
+                                   calculateSalesTax,
+                                   calculateShipping);
+    </pre>
+
+    <p>
+        First assigning the functions to variables was not necessary.
+        They can be assigned to function parameters by passing them
+        directly to the function.
+    </p>
+    
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

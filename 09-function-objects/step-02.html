@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="function-objects"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Functions Without Names</h2>
+
+    <p>
+        When we declare a variable, we can define its value.
+    </p>
+    
+    <pre class="brush: js">
+        var subtotal = 39.95;
+        var name = "John Smith";
+    </pre>
+
+    <div class="progressive1">
+    <p>
+        We can also do this with variables that reference functions.
+    </p>
+
+    <pre class="brush: js">
+        var calculateSalesTax = function (subtotal) {
+            return subtotal * 0.085;
+        }; // <-- notice semicolon
+    </pre>
+    </div>
+
+    <div class="progressive2">
+    <p>
+        We have declared a variable, <code>calculateSalesTax</code> and assigned
+        a function to it.  This function can be called through the variable name,
+        just like we saw in the last step.  The syntax is no different from when
+        we originally declared this function.
+    </p>
+
+    <pre class="brush: js">
+        var tax = calculateSalesTax(subtotal);
+    </pre>
+    </div>
+
+    <div class="progressive3">
+    <p>
+        Because we declared the function without a name, it is called an
+        <em>anonymous function</em>. (You can specify a name between the
+        <code>function</code> keyword and the parameter list, but you will
+        not be able to reference it from your JavaScript code.
+    </p>
+    
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

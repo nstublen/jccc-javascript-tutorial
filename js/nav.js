@@ -56,9 +56,9 @@ var _sections =
                 'Event Objects']
     },
     {
-        name: 'exercise-03',
-        title: 'Exercise 3',
-        steps: 2
+        name: 'exercise-04',
+        title: 'Exercise 4',
+        steps: ['', '']
     },
 ];
 

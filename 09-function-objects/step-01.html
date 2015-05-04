@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="function-objects"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Function Variables</h2>
+
+    <p>
+        JavaScript allows you to assign a function to a variable.
+    </p>
+    
+    <pre class="brush: js">
+        function calculateSalesTax(amount) {
+            return amount * 0.085;
+        }
+        
+        var calculator = calculateSalesTax; // no parentheses,
+                                            // no parameters
+    </pre>
+
+    <div class="progressive1">
+    <p>
+        You may then call the function through the variable that
+        references it.
+    </p>
+
+    <pre class="brush: js">
+        var tax = calculator(39.95);
+    </pre>
+
+    <p>
+        The variable <code>calculator</code> refers to the <code>calculateSalesTax</code>
+        function.  Think of it as just another name for the function.
+    </p>
+    </div>
+
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

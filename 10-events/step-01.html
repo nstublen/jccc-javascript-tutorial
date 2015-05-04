@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="events"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Handling Events</h2>
+
+	<p>
+		Interacting with the elements on a page will generate
+		events.  Events can be accessed as properties on an
+		element.
+	</p>
+
+	<pre class="brush: js">
+        // Assign a function to the element property.
+
+        function myClickFunction() {
+            alert("You clicked it!");
+        }
+
+		element.onclick = myClickFunction;
+    </pre>
+
+	<pre class="brush: js">
+        // Or use an anonymous function.
+
+        element.onclick = function () {
+            alert("You clicked it!");
+        };
+	</pre>
+
+	<div class="progressive1">
+	<p>
+		Events can also be connected using the element's
+        HTML attributes.
+	</p>
+
+	<pre class="brush: js">
+        <p onclick="myClickFunction()">Hello!</p>
+	</pre>
+
+    <p>
+        In this case, the attribute value contains JavaScript that
+        will be executed; it's not simply the name of the function.
+    </p>
+	</div>
+
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

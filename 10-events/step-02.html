@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="events"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+
+	<h2>Multiple Handlers</h2>
+
+	<p>
+		Elements also provide a method for adding and removing events.
+	</p>
+
+	<pre class="brush: js">
+        element.addEventListener("click", myClickHandler);
+
+        element.addEventListener("click", function () {
+        });
+	</pre>
+
+    <div class="progressive1">
+	<p>
+		If we added the event handling function by name, we can
+        also remove it.
+	</p>
+
+	<pre class="brush: js">
+        // Now...
+        element.addEventListener("click", myClickHandler);
+
+        // And later...
+        element.removeEventListener("click", myClickHandler);
+    </pre>
+    </div>
+
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

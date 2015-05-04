@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="function-objects"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>The <code>document</code> Object</h2>
+
+    <p>
+        The browser provides an object that represents the current
+        HTML document. We can access elements on the page through
+        functions on the <code>document</code> object.
+    </p>
+    
+	<pre class="brush: js">
+        var paragraphs = document.getElementsByTagName("p");
+        var element = document.getElementById("p2");
+        var classes = document.getElementsByClassName("brush");
+    </pre>
+
+    <p>
+        These functions return an element object or an array of
+        element objects.
+    </p>
+    
+    <p>
+        We can also create new elements and insert them into the page.
+    </p>
+
+	<pre class="brush: js">
+        var scrollable =
+            document.getElementsByClassName("scrollable");
+        scrollable = scrollable[0];
+        
+        var div = document.createElement("div");
+        div.color = "red";
+        
+        var a = document.createElement("a");
+        a.href = "./step-05.html";
+        a.innerHTML = "Next Step";
+        div.appendChild(a);
+        
+        scrollable.appendChild(div);
+    </pre>
+    
+    </div>
+    </main>
+    
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

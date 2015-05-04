@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>JavaScript</title>
+
+    <script src="../js/shCore.js"></script>
+    <script src="../js/shBrushJScript.js"></script>
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/shCore.css" rel="stylesheet" />
+    <link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+<header data-section="events"><h1></h1><nav></nav></header>
+
+<main class="scroll-wrapper">
+    <div class="scrollable">
+
+    <h2>Event Objects</h2>
+
+    <p>
+        Events will pass an object to the event handler
+        that describes the event.
+    </p>
+
+	<pre class="brush: js">
+        element.onclick = function (e) {
+        };
+	</pre>
+
+    <div class="progressive1">
+    <p>
+        The properties of the event will vary based on the type of the
+        event, but there are some common properties and functions.
+    </p>
+
+	<pre class="brush: js">
+        element.onclick = function (e) {
+            e.target;   // element that triggered the event
+            e.type;     // name of the event
+
+            // cancel default action
+            e.preventDefault();
+
+            // prevent further event callbacks
+            e.stopImmediatePropagation();
+
+            // prevent further propagation
+            e.stopPropagation();
+        };
+	</pre>
+    </div>
+
+    </div>
+</main>
+
+<script src="../js/nav.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+</script>
+</body>
+
+</html>
