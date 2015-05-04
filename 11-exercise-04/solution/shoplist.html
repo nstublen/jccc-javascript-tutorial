@@ -65,14 +65,18 @@
             <input type="num" name="quantity" placeholder="Quantity"/>
             <input type="submit" name="submit" value="Add" />
         </form>
-        <ul></ul>
+        <ul id="shopitem-list"></ul>
     </main>
 
     <script>
         // The shopping list JavaScript goes here (for now).
+        var items = [];
+        var itemId = 0;
 
         function createShoppingListItem(itemName, quantity) {
+            itemId++;
             return {
+                itemId: "shoplist-item-" + itemId,
                 itemName: itemName || "",
                 quantity: quantity || 1,
                 complete: false
@@ -80,13 +84,15 @@
         }
 
         function addItemElementToList(root, item) {
-            var newElement = document.createElement("div");
-            newElement.setAttribute("class", "shoplist-item")
+            var newElement = document.createElement("li");
+            newElement.setAttribute("class", "shoplist-item");
+            newElement.setAttribute("id", item.itemId);
 
             var checkbox = document.createElement("input");
             checkbox.setAttribute("type", "checkbox");
             checkbox.checked = item.complete;
             newElement.appendChild(checkbox);
+            checkbox.onclick = handleItemCompleted;
 
             var itemName = document.createElement("span");
             itemName.innerHTML = item.itemName;
@@ -98,8 +104,34 @@
             var del = document.createElement("button");
             del.innerHTML = "Delete";
             newElement.appendChild(del);
+            del.onclick = handleItemDeleted;
 
             root.appendChild(newElement);
+        }
+
+        function handleItemCompleted(e) {
+            var itemId = e.target.parentNode.getAttribute("id");
+
+            for (var index = 0; index < items.length; ++index) {
+                if (items[index].itemId === itemId) {
+                    items[index].complete = e.target.checked;
+                    break;
+                }
+            }
+        }
+
+        function handleItemDeleted(e) {
+            var itemId = e.target.parentNode.getAttribute("id");
+
+            for (var index = 0; index < items.length; ++index) {
+                if (items[index].itemId === itemId) {
+                    items.splice(index, 1);
+                    break;
+                }
+            }
+
+            var itemElement = document.getElementById(itemId);
+            itemElement.parentElement.removeChild(itemElement);
         }
 
         function gatherItemFromForm(formId, item) {
@@ -117,6 +149,25 @@
             }
             item.complete = false;
         }
+
+        function handleFormSubmission(e) {
+            e.preventDefault();
+
+            var item = createShoppingListItem();
+            gatherItemFromForm("shopitem-entry", item);
+
+            items = items.concat(item);
+
+            var ul = document.getElementById("shopitem-list");
+            addItemElementToList(ul, item);
+        }
+
+        function initPage() {
+            var form = document.getElementById("shopitem-entry");
+            form.onsubmit = handleFormSubmission;
+        }
+
+        window.onload = initPage;
     </script>
     
     </body>
