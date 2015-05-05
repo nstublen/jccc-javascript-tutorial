@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="events"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Sharing Functions</h2>
+
+	<p>
+		Once we have defined a set of object properties in the constructor,
+        we can write functions designed to operate on those properties.
+	</p>
+
+	<pre class="brush: js">
+        function ShoppingListItem(itemName, quantity) {
+            this.itemName: itemName || "";
+            this.quantity: quantity || 1;
+            this.complete: false;
+        }
+
+        ShoppingListItem.prototype.getQuantity = function () {
+            return this.quantity;
+        }
+
+        ShoppingListItem.prototype.isComplete = function () {
+            return this.complete;
+        }
+    </pre>
+
+    <p>
+        Prototype functions are accessible from any object that was created
+        with the prototype's constructor function.  Prototype functions are
+        accessed just like functions that are attached as properties of an
+        object.
+    </p>
+
+	<pre class="brush: js">
+        var item = new ShoppingListItem("socks", 2);
+        var quantity = item.getQuantity();
+        var complete = item.isComplete();
+    </pre>
+
+    <p>
+        Inside the prototype function, <code>this</code> references the object
+        that was used to call the function.
+    </p>
+
+    </div>
+    </main>
+
+    <script>
+        function ShoppingListItem(itemName, quantity) {
+            this.itemName: itemName || "";
+            this.quantity: quantity || 1;
+            this.complete: false;
+        }
+    </script>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

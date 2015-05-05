@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="events"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Using Prototype Functions</h2>
+
+	<p>
+		When you reference an object function, JavaScript will
+        first examine the object for a matching function name, then
+        it will search the object's <code>prototype</code>.
+	</p>
+
+	<pre class="brush: js">
+        var item = new ShoppingListItem("socks", 2);
+
+        item.getDoubleQuantity = function () {
+            return this.quantity * 2;
+        }
+
+        var quantity = item.getQuantity();
+        var double = item.getDoubleQuantity();
+    </pre>
+
+    <p>
+        The <code>getDoubleQuantity</code> function only exists for
+        the single <code>item</code>. If we create another <code>ShoppingListItem</code>,
+        it will not have this function unless we add it.  However,
+        all <code>ShoppingListItems</code> will have the prototype functions.
+    </p>
+
+    </div>
+    </main>
+
+    <script>
+        function ShoppingListItem(itemName, quantity) {
+            this.itemName: itemName || "";
+            this.quantity: quantity || 1;
+            this.complete: false;
+        }
+    </script>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="events"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Using <code>new</code> and <code>this</code></h2>
+
+	<p>
+		Instead of creating an empty object and passing it to a function,
+        we can use JavaScript's <code>new</code> keyword.
+	</p>
+
+	<pre class="brush: js">
+        function ShoppingListItem(itemName, quantity) {
+            this.itemName: itemName || "";
+            this.quantity: quantity || 1;
+            this.complete: false;
+        }
+
+        var item = new ShoppingListItem("socks", 2);
+    </pre>
+
+    <p>
+        The function doesn't have an argument for the new object, but the
+        new object is referenced using the <code>this</code> keyword.
+    </p>
+
+    <p>
+        By convention, constructor functions are capitalized.
+    </p>
+
+    </div>
+    </main>
+
+    <script>
+        function createShoppingListItem(itemName, quantity) {
+            return {
+                itemName: itemName || "",
+                quantity: quantity || 1,
+                complete: false
+            }
+        }
+    </script>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

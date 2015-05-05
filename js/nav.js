@@ -60,6 +60,21 @@ var _sections =
         title: 'Exercise 4',
         steps: ['', '']
     },
+    {
+        name: 'object-constructors',
+        title: 'Object Constructors',
+        steps: ['Initialization Functions', 'Using new and this']
+    },
+    {
+        name: 'prototype-functions',
+        title: 'Prototype Functions',
+        steps: ['Sharing Functions', 'Using Prototype Functions']
+    },
+    {
+        name: 'exercise-05',
+        title: 'Exercise 5',
+        steps: ['', '']
+    },
 ];
 
 function findSectionInfo(sectionName) {
