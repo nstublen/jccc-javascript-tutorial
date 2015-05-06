@@ -40,7 +40,7 @@
         The <code>getDoubleQuantity</code> function only exists for
         the single <code>item</code>. If we create another <code>ShoppingListItem</code>,
         it will not have this function unless we add it.  However,
-        all <code>ShoppingListItems</code> will have the prototype functions.
+        all <code>ShoppingListItems</code> will have all prototype functions.
     </p>
 
     </div>
@@ -48,9 +48,13 @@
 
     <script>
         function ShoppingListItem(itemName, quantity) {
-            this.itemName: itemName || "";
-            this.quantity: quantity || 1;
-            this.complete: false;
+            this.itemName = itemName || "";
+            this.quantity = quantity || 1;
+            this.complete = false;
+        }
+        
+        String.prototype.doubleString = function () {
+            return this.toString() + this.toString();
         }
     </script>
 

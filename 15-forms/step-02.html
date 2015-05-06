@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="events"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Accessing Form Inputs</h2>
+
+	<p>
+		Each form object provides access to its inputs through an <code>elements</code>
+        property.
+	</p>
+
+	<pre class="brush: js">
+        var firstForm = document.forms[0];
+        var inputs = firstForm.elements;
+    </pre>
+
+    <div class="progressive1">
+    <p>
+        We can iterate the inputs using a <code>for</code> loop.
+    </p>
+
+	<pre class="brush: js">
+        for (var index = 0; index < inputs.length; ++index) {
+            var name = inputs[index].name;
+            var value = inputs[index].value;
+            values.innerHTML += name + " = " + value + "<br/>";
+        }
+    </pre>
+    </div>
+
+    <div class="progressive2">
+        <p>
+            Here's a form.  There's some script already on the page that will walk
+            through the form's inputs and display their values when the form is
+            submitted.
+        </p>
+        
+        <form id="form-id" name="form-name">
+            <label>Name:</label>
+                <input type="text" name="name" /><br/>
+            <label>Age:</label>
+                <input type="num" name="age" /><br/>
+            <label>Date:</label>
+                <input type="date" name="date" /><br/>
+            <label>Accept:</label>
+                <input type="checkbox" name="accept" /><br/>
+            <label>Gender:</label>
+                <select name="gender">
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                </select><br/>
+            <label>Really accept?</label>
+                <input type="radio" name="really-accept" value="y" />Yes
+                <input type="radio" name="really-accept" value="n" />No
+            <input type="submit" name="submit" value="Submit" /><br/>
+        </form>
+        <div id="form-values"></div>
+    </div>
+    
+    </div>
+    </main>
+
+    <script>
+        function checkForm(e) {
+            e.preventDefault();
+            
+            var form = document.forms[0];
+            var values = document.getElementById("form-values");
+            values.innerHTML = "";
+
+            var inputs = form.elements;
+            for (var index = 0; index < inputs.length; ++index) {
+                var name = inputs[index].name;
+                var value = inputs[index].value;
+                var checked = inputs[index].checked;
+                values.innerHTML += name + " = " + value + ", checked = " + checked + "<br/>";
+            }
+        }
+        
+        document.forms[0].onsubmit = checkForm;
+    </script>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

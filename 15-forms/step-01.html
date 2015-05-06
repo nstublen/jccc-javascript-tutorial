@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="forms"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Accessing Forms</h2>
+
+	<p>
+		We've seen how to find elements by id, tag name, or class name.
+        In the case of forms, we can also use a special <code>document</code>
+        property.
+	</p>
+
+	<pre class="brush: js">
+        var firstForm = document.forms[0];
+        var formById = document.forms["my-form-id"];
+    </pre>
+
+    <p>
+        The <code>forms</code> property contains an array of all the
+        forms on the page. Each form can be accessed using its index position
+        in the array, or the id or name attribute specified in the HTML. 
+    </p>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

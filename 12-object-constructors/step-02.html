@@ -20,22 +20,38 @@
 	<h2>Using <code>new</code> and <code>this</code></h2>
 
 	<p>
+		Instead of a "creation" function we would end up with an
+        "initialization" function that looks something like this.
+	</p>
+
+	<pre class="brush: js">
+        function initShoppingListItem(newObj, itemName, quantity) {
+            newObj.itemName = itemName || "";
+            newObj.quantity = quantity || 1;
+            newObj.complete = false;
+        }
+
+        var item = {};
+        initShoppingListItem(item, "cookies", 24);
+    </pre>
+
+	<p>
 		Instead of creating an empty object and passing it to a function,
         we can use JavaScript's <code>new</code> keyword.
 	</p>
 
 	<pre class="brush: js">
         function ShoppingListItem(itemName, quantity) {
-            this.itemName: itemName || "";
-            this.quantity: quantity || 1;
-            this.complete: false;
+            this.itemName = itemName || "";
+            this.quantity = quantity || 1;
+            this.complete = false;
         }
 
-        var item = new ShoppingListItem("socks", 2);
+        var item = new ShoppingListItem("cookies", 24);
     </pre>
 
     <p>
-        The function doesn't have an argument for the new object, but the
+        The function doesn't have an argument for the new object, because the
         new object is referenced using the <code>this</code> keyword.
     </p>
 

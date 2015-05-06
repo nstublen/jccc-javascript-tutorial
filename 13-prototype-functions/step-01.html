@@ -22,13 +22,15 @@
 	<p>
 		Once we have defined a set of object properties in the constructor,
         we can write functions designed to operate on those properties.
+        These functions are attached to any object created with our
+        constructor. 
 	</p>
 
 	<pre class="brush: js">
         function ShoppingListItem(itemName, quantity) {
-            this.itemName: itemName || "";
-            this.quantity: quantity || 1;
-            this.complete: false;
+            this.itemName = itemName || "";
+            this.quantity = quantity || 1;
+            this.complete = false;
         }
 
         ShoppingListItem.prototype.getQuantity = function () {
@@ -63,9 +65,9 @@
 
     <script>
         function ShoppingListItem(itemName, quantity) {
-            this.itemName: itemName || "";
-            this.quantity: quantity || 1;
-            this.complete: false;
+            this.itemName = itemName || "";
+            this.quantity = quantity || 1;
+            this.complete = false;
         }
     </script>
 

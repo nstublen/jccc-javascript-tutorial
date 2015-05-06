@@ -75,6 +75,11 @@ var _sections =
         title: 'Exercise 5',
         steps: ['', '']
     },
+    {
+        name: 'forms',
+        title: 'Forms',
+        steps: ['Accessing Forms', 'Accessing Form Inputs']
+    },
 ];
 
 function findSectionInfo(sectionName) {
