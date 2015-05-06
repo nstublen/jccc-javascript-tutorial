@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    /* The rotation site is a fixed size div.  It will contain
+       a set of images, but images outside of its boundaries
+       will be hidden. */
+    #rotation-site {
+        width: 256px;
+        height: 192px;
+        border: 1px solid black;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* The size of an image in the rotation site is equal to
+       the size of the rotation site. */
+    #rotation-site img {
+        width: 256px;
+        height: 192px;
+    }
+    
+    /* Rotatable images use absolute position so they can
+       overlap positions on the page.  Their initial
+       position will be at the bottom of the rotation site. */
+    .rotatable {
+        opacity: 0;
+        position: absolute;
+        top: 192px;
+        z-index: 0;
+        transition: all 1s ease;
+    }
+    
+    /* Images rotating in will become visible as their
+       position transitions to 0, 0.  Increasing the
+       z-index ensures the images coming in is on top
+       of the image going out. */
+    .rotated {
+        opacity: 1;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    /* We want to reset the z-order for an image that's
+       rotating off so the image coming in will be on top
+       of it. */
+    .rotated-off {
+        z-index: 0;
+    }
+</style>
+<body>
+
+    <!-- All we need on the page is a <div> to hold the images -->
+    <div id="rotation-site"></div>
+
+    <script>
+        // 2. A constructor function initializes the ImageRotator
+        // by finding the site element and creating an empty array
+        // of image elements.  A rotationIndex will keep track of
+        // which image is currently displayed.
+        
+        // 3. An addImage function accepts an image URL and adds a
+        // new image element to the ImageRotator's element array.
+        // The new image has the "rotatable" class and is added
+        // to the rotation site.
+
+        // 5. A clearRotatedOff function is used to reset images after they
+        // rotate off. The reset clears all classes except the "rotatable"
+        // class.
+        
+        // 4. A nextImage function updates the class of the current image
+        // to indicate it has now rotated off, and updates the class of
+        // the next image to become "rotated". We will also need to
+        // increment the rotation index.
+        
+        // 6. The startRotation function will immediately display the next
+        // image if the rotation index is invalid, and it will set an
+        // interval timer to schedule later image rotations.
+    
+        // 1. We can create a new ImageRotator object, fill it with images,
+        // and start the rotation.
+    </script>
+</body>
+</html>
