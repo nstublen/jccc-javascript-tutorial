@@ -60,12 +60,21 @@
             <input type="num" name="quantity" placeholder="Quantity"/>
             <input type="submit" name="submit" value="Add" />
         </form>
+        <!-- Step 1-1: Place an unordered list element on the page to
+             hold new shopping checklist items. -->
     </main>
 
     <script>
         // The shopping list JavaScript goes here (for now).
 
+        // Step 1-3: Create and "items" array to store all the
+        // shopping items that are created.
+
+        // Step 2-1: Create an itemId counter that can be used
+        // to form a unique "id" property for each item.
+
         function createShoppingListItem(itemName, quantity) {
+            // Step 2-2: Add a unique "id" property to the item.
             return {
                 itemName: itemName || "",
                 quantity: quantity || 1,
@@ -74,12 +83,18 @@
         }
 
         function addItemElementToList(root, item) {
+            // Step 1-2: Create <li> elements instead of <div>
+            // elements for each shopping checklist item.
             var newElement = document.createElement("div");
             newElement.setAttribute("class", "shoplist-item")
+            // Step 2-3: Attach the item's unique "id" property
+            // to the new <li> element.
 
             var checkbox = document.createElement("input");
             checkbox.setAttribute("type", "checkbox");
             checkbox.checked = item.complete;
+            // Step 2-5: Attach the "handleItemCompleted" function
+            // to the new checkbox element.
             newElement.appendChild(checkbox);
 
             var itemName = document.createElement("span");
@@ -91,10 +106,21 @@
 
             var del = document.createElement("button");
             del.innerHTML = "Delete";
+            // Step 2-7: Attach the "handleItemDeleted" function
+            // to the new Delete button.
             newElement.appendChild(del);
 
             root.appendChild(newElement);
         }
+
+        // Step 2-4: Write a "handleItemCompleted" function that
+        // will update the item's "complete" property to match the
+        // state of the corresponding input element.
+
+        // Step 2-6: Write a "handleItemDeleted" function that
+        // will:
+        // a. Remove the correct item from the items array
+        // b. Remove the corresponding <li> element from the page.
 
         function gatherItemFromForm(formId, item) {
             var form = document.getElementById(formId);
@@ -111,6 +137,20 @@
             }
             item.complete = false;
         }
+
+        // Step 1-4: Write a "handleFormSubmission" function that
+        // will:
+        // a. Create a new shopping list item
+        // b. Gather shopping list item data from the form
+        // c. Concatenate the "items" array and the newly created
+        //    item.
+        // d. Add the newly created item to the <ul> element.
+
+        // Step 1-5: Write an "initPage" function that will setup
+        // event handling for the form's submit event.
+
+        // Step 1-6: Attach the "initPage" function to the window's
+        // load event.
     </script>
     
     </body>

@@ -101,12 +101,12 @@
             if (form) {
                 var inputs = form.getElementsByTagName("input");
                 for (var index = 0; index < inputs.length; ++index) {
-                    if (inputs[index].type === "submit") {
-                        continue;
-                    }
                     var name = inputs[index].getAttribute("name")
                     var value = inputs[index].value;
-                    item[name] = value;
+
+                    if (item.hasOwnProperty(name)) {
+                        item[name] = value;
+                    }
                 }
             }
             item.complete = false;

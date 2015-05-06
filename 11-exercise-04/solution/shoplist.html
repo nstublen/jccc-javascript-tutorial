@@ -91,8 +91,8 @@
             var checkbox = document.createElement("input");
             checkbox.setAttribute("type", "checkbox");
             checkbox.checked = item.complete;
-            newElement.appendChild(checkbox);
             checkbox.onclick = handleItemCompleted;
+            newElement.appendChild(checkbox);
 
             var itemName = document.createElement("span");
             itemName.innerHTML = item.itemName;
@@ -103,8 +103,8 @@
 
             var del = document.createElement("button");
             del.innerHTML = "Delete";
-            newElement.appendChild(del);
             del.onclick = handleItemDeleted;
+            newElement.appendChild(del);
 
             root.appendChild(newElement);
         }
