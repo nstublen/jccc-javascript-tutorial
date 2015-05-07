@@ -73,7 +73,7 @@ var _sections =
     {
         name: 'exercise-05',
         title: 'Exercise 5',
-        steps: ['', '']
+        steps: ['']
     },
     {
         name: 'forms',

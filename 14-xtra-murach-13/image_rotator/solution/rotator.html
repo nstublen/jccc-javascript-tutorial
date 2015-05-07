@@ -70,7 +70,7 @@
         // The new image has the "rotatable" class and is added
         // to the rotation site.
         ImageRotator.prototype.addImage = function (imageUrl) {
-            if (site) {
+            if (this.site) {
                 var img = document.createElement("img");
                 img.src = imageUrl;
                 img.className = "rotatable";
