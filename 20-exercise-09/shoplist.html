@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Exercise 09 - Shopping List</title>
+
+    <style>
+        input:checked + span {
+            text-decoration: line-through;
+        }
+
+        .shoplist-item {
+            display: flex;
+            flex-direction: row;
+            width: 400px;
+            padding: 2px;
+        }
+
+        .shoplist-item input {
+            flex-grow: 0;
+        }
+
+        .shoplist-item span {
+            flex-grow: 1;
+        }
+
+        .shoplist-item button {
+            flex-grow: 0;
+        }
+
+        #shopitem-entry {
+            display: flex;
+            flex-direction: row;
+            width: 400px;
+        }
+
+        #shopitem-entry input[name="itemName"] {
+            flex: 3;
+        }
+        #shopitem-entry input[name="quantity"] {
+            flex: 1;
+            margin-left: 5px;
+        }
+        #shopitem-entry input[name="submit"] {
+            flex: 1;
+            margin-left: 5px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+    </style>
+    
+    <!-- 1. Add a link to the Knockout.js library. -->
+</head>
+
+<body>
+    <header>
+        <h1>Exercise 09 - Shopping List</h1>
+    </header>
+    
+    <main>
+        <form id="shopitem-entry">
+            <input type="text" name="itemName" placeholder="Item" />
+            <input type="num" name="quantity" placeholder="Quantity"/>
+            <input type="submit" name="submit" value="Add" />
+        </form>
+        <ul id="shopitem-list">
+            <!-- 3. Describe the item HTML. --> 
+        </ul>
+    </main>
+
+    <script>
+        // The shopping list JavaScript goes here (for now).
+        var itemId = 0;
+        var items = [];
+
+        function ShoppingListItem(itemName, quantity) {
+            itemId++;
+            this.itemId = "shoplist-item-" + itemId;
+            this.itemName = itemName || "";
+            this.quantity = quantity || 1;
+            this.complete = false;
+
+            // 4. The description is computed.
+        }
+
+        ShoppingListItem.prototype.getDescription = function () {
+            var desc = this.itemName;
+            if (this.quantity > 1) {
+                desc += " (x" + this.quantity + ")";
+            }
+            return desc;
+        }
+
+        // 5. Knockout will update the HTML elements.
+
+        function addItemElementToList(root, item) {
+            var newElement = document.createElement("li");
+            newElement.setAttribute("class", "shoplist-item");
+            newElement.setAttribute("id", item.itemId);
+
+            var checkbox = document.createElement("input");
+            checkbox.setAttribute("type", "checkbox");
+            checkbox.checked = item.complete;
+            newElement.appendChild(checkbox);
+            checkbox.onclick = handleItemCompleted;
+
+            var itemName = document.createElement("span");
+            itemName.innerHTML = item.getDescription();
+            newElement.appendChild(itemName);
+
+            var del = document.createElement("button");
+            del.innerHTML = "Delete";
+            newElement.appendChild(del);
+            del.onclick = handleItemDeleted;
+
+            root.appendChild(newElement);
+        }
+
+        function handleItemCompleted(e) {
+            var itemId = e.target.parentNode.getAttribute("id");
+
+            for (var index = 0; index < items.length; ++index) {
+                if (items[index].itemId === itemId) {
+                    items[index].complete = e.target.checked;
+                    break;
+                }
+            }
+        }
+
+        function handleItemDeleted(e) {
+            var itemId = e.target.parentNode.getAttribute("id");
+
+            for (var index = 0; index < items.length; ++index) {
+                if (items[index].itemId === itemId) {
+                    items.splice(index, 1);
+                    break;
+                }
+            }
+
+            var itemElement = document.getElementById(itemId);
+            itemElement.parentElement.removeChild(itemElement);
+        }
+
+        function gatherItemFromForm(formId, item) {
+            var form = document.getElementById(formId);
+            if (form) {
+                var inputs = form.getElementsByTagName("input");
+                for (var index = 0; index < inputs.length; ++index) {
+                    if (inputs[index].type === "submit") {
+                        continue;
+                    }
+                    var name = inputs[index].getAttribute("name")
+                    var value = inputs[index].value;
+                    item[name] = value;
+                }
+            }
+            item.complete = false;
+        }
+
+        function handleFormSubmission(e) {
+            e.preventDefault();
+
+            var item = new ShoppingListItem();
+            gatherItemFromForm("shopitem-entry", item);
+
+            items = items.concat(item);
+
+            var ul = document.getElementById("shopitem-list");
+            addItemElementToList(ul, item);
+        }
+
+        function initPage() {
+            // 2. Add data-binding.
+
+            var form = document.getElementById("shopitem-entry");
+            form.onsubmit = handleFormSubmission;
+        }
+
+        window.onload = initPage;
+    </script>
+    
+    </body>
+
+</html>

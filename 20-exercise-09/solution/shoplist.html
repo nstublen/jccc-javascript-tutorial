@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Exercise 09 - Shopping List</title>
+
+    <style>
+        input:checked + span {
+            text-decoration: line-through;
+        }
+
+        .shoplist-item {
+            display: flex;
+            flex-direction: row;
+            width: 400px;
+            padding: 2px;
+        }
+
+        .shoplist-item input {
+            flex-grow: 0;
+        }
+
+        .shoplist-item span {
+            flex-grow: 1;
+        }
+
+        .shoplist-item button {
+            flex-grow: 0;
+        }
+
+        #shopitem-entry {
+            display: flex;
+            flex-direction: row;
+            width: 400px;
+        }
+
+        #shopitem-entry input[name="itemName"] {
+            flex: 3;
+        }
+        #shopitem-entry input[name="quantity"] {
+            flex: 1;
+            margin-left: 5px;
+        }
+        #shopitem-entry input[name="submit"] {
+            flex: 1;
+            margin-left: 5px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+    </style>
+    
+    <!-- 1. Add a link to the Knockout.js library. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>    
+</head>
+
+<body>
+    <header>
+        <h1>Exercise 09 - Shopping List</h1>
+    </header>
+    
+    <main>
+        <form id="shopitem-entry" data-bind="submit: addItem">
+            <input type="text" name="itemName" placeholder="Item" data-bind="value: entry.itemName"/>
+            <input type="num" name="quantity" placeholder="Quantity" data-bind="value: entry.quantity"/>
+            <input type="submit" name="submit" value="Add" />
+        </form>
+        <ul id="shopitem-list" data-bind="foreach: items">
+            <!-- 3. Describe the item HTML. --> 
+            <li class="shoplist-item" data-bind="attr: { id: itemId }">
+                <input type="checkbox" data-bind="checked: complete"/>
+                <span data-bind="text: description()"></span>
+                <button data-bind="click: $root.removeItem">Delete</button>
+            </li>
+        </ul>
+    </main>
+
+    <script>
+        // The shopping list JavaScript goes here (for now).
+        var itemId = 0;
+        var model = {
+            entry: new ShoppingListItem(),
+            items: ko.observableArray(),
+            
+            addItem: function () {
+                var newItem = new ShoppingListItem(this.entry.itemName, this.entry.quantity);
+                this.items.push(newItem);
+            },
+            removeItem: function (item) {
+                model.items.remove(item);
+            }
+        };
+
+        function ShoppingListItem(itemName, quantity) {
+            itemId++;
+            this.itemId = "shoplist-item-" + itemId.toString();
+            this.itemName = itemName || "";
+            this.quantity = quantity || 1;
+            this.complete = false;
+            
+            this.description = ko.computed(function () {
+                var desc = this.itemName;
+                if (this.quantity > 1) {
+                    desc += " (x" + this.quantity + ")";
+                }
+                return desc;
+            }, this);
+        }
+
+        function initPage() {
+            // 2. Add data-binding.
+            ko.applyBindings(model);
+        }
+
+        window.onload = initPage;
+    </script>
+    
+    </body>
+
+</html>

@@ -100,6 +100,11 @@ var _sections =
         title: 'More JavaScript',
         steps: ['for-in Loops', 'Math', 'Split and Join Strings', 'Exceptions']
     },
+    {
+        name: 'exercise-09',
+        title: 'Exercise 9',
+        steps: ['']
+    },
 ];
 
 function findSectionInfo(sectionName) {
