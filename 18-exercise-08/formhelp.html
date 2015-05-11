@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Exercise 02 - Shopping List</title>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="name">Name:</label>
+            <input type="text" name="name" /><br />
+        <label for="alias">Alias:</label>
+            <input type="text" name="alias" /><br />
+        <label for="password">Password:</label>
+            <input type="text" name="password" /><br />
+        <label for="verify">Verify:</label>
+            <input type="text" name="verify" /><br />
+        <label for="color">Favorite color:</label>
+            <select name="color">
+                <option value="red">Red</option>
+                <option value="green">Green</option></option>
+                <option value="blue">Blue</option>
+            </select><br />
+            
+        <p id="help"></p>
+    </form>
+
+    <script>
+        var help = []
+        help['name'] = "Enter your real name. It will not be made public (at least we hope not).";
+        help['alias'] = "Enter the name you will publicly use on the site.";
+        help['password'] = "Enter a secure password.";
+        help['verify'] = help['password'];
+        help['color'] = "We will customize the site based on your favorite color.";
+    </script>
+    
+    </body>
+
+</html>
