@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Exercise 02 - Shopping List</title>
+
+    <style>
+        .box {
+            display: inline-block;
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            border: solid 2px blue;
+            background-color: dodgerblue;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-size: 2em
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Exercise 06 - Boxes</h1>
+    </header>
+    
+    <main>
+        <ul id="boxes">
+            <button id="reset">Reset</button>
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+        </ul>
+    </main>
+
+    <script>
+        var boxes;
+        var box;
+        var index;
+        var boxParent;
+        var newBox;
+        
+        // 1. Add a click handling function for the boxes.
+        function handleBoxClick (event) {
+            // 4. Remove the box from the page when it is clicked.
+            box = event.target;
+            boxParent = box.parentElement;
+            boxParent.removeChild(box);
+        }
+        
+        // 2. Find all the box elements on the page.
+        boxes = document.getElementsByClassName("box");
+            
+        // 3. Connect the click handling function to each box.
+        for (index = 0; index < boxes.length; ++index) {
+            box = boxes[index];
+            box.onclick = handleBoxClick;
+        }
+        
+        // 5. Add a function that will create a new box with a
+        //    specific number in it.
+        function createBox(number) {
+            var newBox = document.createElement("div");
+            newBox.className = "box";
+            newBox.innerText = number.toString();
+            newBox.onclick = handleBoxClick;
+            return newBox;
+        }
+        
+        // 6. Add a click handling function for the "Reset"
+        //    button.
+        function handleResetClick(event) {
+            // 9. Make sure the #boxes element has three boxes in it
+            //    (in order).
+            var boxNumber = 1;
+            var container = document.getElementById("boxes");
+            
+            boxes = document.getElementsByClassName("box");
+            for (index = 0; index < boxes.length; ++index) {
+                box = boxes[index];
+                while (box.innerText > boxNumber) {
+                    newBox = createBox(boxNumber);
+                    container.insertBefore(newBox, box);
+                    
+                    boxNumber++;
+                }
+                boxNumber = parseInt(box.innerText) + 1;
+            }
+            
+            while (boxNumber <= 3) {
+                newBox = createBox(boxNumber);
+                container.appendChild(newBox);
+                boxNumber++;
+            }
+        }
+        
+        // 7. Find the button on the page.
+        var reset = document.getElementById("reset");
+        
+        // 8. Connect the click handling function to the "Reset"
+        //    button.
+        reset.onclick = handleResetClick;
+    </script>
+    
+    </body>
+
+</html>

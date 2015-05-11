@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Exercise 02 - Shopping List</title>
+
+    <style>
+        .blurbox {
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            -webkit-filter: blur(0);
+            filter: blur(0);
+        }
+        
+        .blurry {
+            -webkit-filter: blur(2px);
+            filter: blur(2px);
+        }
+        
+        .popup-content {
+            position: absolute;
+            border-radius: 25px;
+            border: solid mediumspringgreen 2px;
+            background-color: mintcream;
+            padding: 25px;
+            width: 50%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="blur-target">
+        <header>
+            <h1>Exercise 07 - Blur Box</h1>
+        </header>
+        
+        <script id="popup-content" type="text/html">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+               enim ad minim veniam, quis nostrud exercitation ullamco laboris
+               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+               in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+               sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </script>
+    
+        <main>
+            <button id="popup">Popup</button>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+               enim ad minim veniam, quis nostrud exercitation ullamco laboris
+               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+               in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+               sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </main>
+    </div>
+
+    <script>
+        var boxes;
+        var box;
+        var index;
+        var boxParent;
+        var newBox;
+        
+        // 1. Write a function that will create a <div> with the "blurbox"
+        //    class.
+            // 2. Create the blurbox and append it to the <body>.
+            // 3. Make the blur-target blurry.
+
+        // 4. Write a function to create and display the popup content.
+            // 5. Get the content from the <script> tag.
+            // 6. Create the a <div> with class "popup-content".
+            // 7. Place the popup into the blurbox.
+            // 8. Center the popup in the blurbox.
+        
+        // 9. Add a click handling function for the "Popup"
+        //    button.
+            // 12. Create blurbox.
+            // 13. Create popup.
+            // 14. Undo when popup or blurbox is clicked.
+        
+        // 10. Find the button on the page.
+        
+        // 11. Connect the click handling function to the "Popup"
+        //     button.
+    </script>
+    
+    </body>
+
+</html>
