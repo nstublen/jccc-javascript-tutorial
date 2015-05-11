@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="more-javascript"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2><code>for-in</code> Loops</h2>
+
+	<p>
+		We've seen how to iterate over an array's elements using
+        a <code>for</code> loop. We can also use JavaScript's
+        <code>for-in</code> loop syntax.
+	</p>
+
+	<pre class="brush: js">
+        for (var index = 0; index < myArray.length; ++index) {
+            var arrayElement = myArray[index];
+            // ...
+        }
+        
+        for (var index in myArray) {
+            var arrayElement = myArray[index];
+            // ...
+        }
+    </pre>
+
+    <div class="progressive1">
+    <p>
+        Both forms will iterate over the array, but the <code>for-in</code>
+        syntax will avoid iterating elements that are undefined. 
+    </p>
+
+	<pre class="brush: js">
+        var myArray = [];
+        myArray[4] = "Hello";
+        myArray[7] = ", John!";
+        
+        for (var index in myArray) {
+            var arrayElement = myArray[index];
+            document.write(arrayElement);
+        }
+        // Outputs "Hello, John!"
+    </pre>
+    </div>
+    
+    <div class="progressive2">
+        <p>The <code>for-in</code> syntax can also be used to iterate
+           over object properties.</p>
+
+    	<pre class="brush: js">
+            var myObject = {
+                firstName: "John",
+                lastName: "Smith"
+            };
+
+            for (var propertyName in myObject) {
+                var propertyValue = myObject[propertyName];
+                document.write(propertyName + " = " + propertyValue + "<br/>");
+            }
+            // Outputs "firstName = John<br/>lastName = Smith<br/>
+        </pre>
+    </div>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

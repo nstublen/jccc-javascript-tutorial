@@ -80,6 +80,26 @@ var _sections =
         title: 'Forms',
         steps: ['Accessing Forms', 'Accessing Form Inputs']
     },
+    {
+        name: 'exercise-06',
+        title: 'Exercise 6',
+        steps: ['', '']
+    },
+    {
+        name: 'exercise-07',
+        title: 'Exercise 7',
+        steps: ['']
+    },
+    {
+        name: 'exercise-08',
+        title: 'Exercise 8',
+        steps: ['']
+    },
+    {
+        name: 'more-javascript',
+        title: 'More JavaScript',
+        steps: ['for-in Loops', 'Math', 'Split and Join Strings', 'Exceptions']
+    },
 ];
 
 function findSectionInfo(sectionName) {

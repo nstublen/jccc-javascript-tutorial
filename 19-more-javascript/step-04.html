@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="more-javascript"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Exceptions</h2>
+
+	<p>
+		When a JavaScript error occurs, the browser will stop executing
+        our JavaScript code.  If we want to make sure our code continues
+        executing, we can catch the errors and respond appropriately.
+	</p>
+
+	<pre class="brush: js">
+        function calculateSalesTax(items) {
+            var subtotal = 0;
+            for (var index = 0; index < items.length; ++index) {
+                subtotal += items[index];
+            }
+            return subtotal * 0.085;
+        }
+        
+        var arrayOfItems; // Oops! We didn't assign a value.
+        calculateSalesTax(arrayOfItems);
+    </pre>
+
+    <div class="progressive1">
+    <p>
+        We can make our function more robust by checking <code>items</code>
+        before we use it, but we can also use exception handling with
+        a <code>try-catch</code> block.
+    </p>
+
+	<pre class="brush: js">
+        function calculateSalesTax2(items) {
+            var subtotal = 0;
+            try {
+                for (var index = 0; index < items.length; ++index) {
+                    subtotal += items[index];
+                }
+            } catch(e) {
+                alert("Someone passed bad data to calculateSalesTax2()!");
+                subtotal = 0;
+            }
+            return subtotal * 0.085;
+        }
+    </pre>
+    </div>
+
+    <div class="progressive2">
+    <p>
+        It's also possible to generate an exception using the
+        <code>throw</code> keyword.
+    </p>
+
+	<pre class="brush: js">
+        function calculateSalesTax3(items) {
+            if (!items) {
+                // Returning 0 would be inaccurate...
+                throw new Error("Invalid items argument!")
+            }
+            
+            var subtotal = 0;
+            for (var index = 0; index < items.length; ++index) {
+                subtotal += items[index];
+            }
+            return subtotal * 0.085;
+        }
+    </pre>
+    
+    </div>
+    </main>
+
+    <script>
+        function calculateSalesTax(items) {
+            var subtotal = 0;
+            for (var index = 0; index < items.length; ++index) {
+                subtotal += items[index];
+            }
+            return subtotal * 0.085;
+        }
+        
+        function calculateSalesTax2(items) {
+            var subtotal = 0;
+            try {
+                for (var index = 0; index < items.length; ++index) {
+                    subtotal += items[index];
+                }
+            } catch(e) {
+                alert("Someone passed bad data to calculateSalesTax2()!\n" + e.message);
+                subtotal = 0;
+            }
+            return subtotal * 0.085;
+        }
+
+        function calculateSalesTax3(items) {
+            if (!items) {
+                // Returning 0 would be inaccurate...
+                throw new Error("Invalid items argument!")
+            }
+            
+            var subtotal = 0;
+            for (var index = 0; index < items.length; ++index) {
+                subtotal += items[index];
+            }
+            return subtotal * 0.085;
+        }
+    </script>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

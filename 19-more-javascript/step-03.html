@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="more-javascript"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>Split and Join Strings</h2>
+
+	<p>
+		A couple of common string operations include splitting and joining
+        strings with a specific separator character.  JavaScript supports these
+        operations using strings and arrays of strings.
+	</p>
+
+	<pre class="brush: js">
+        var stringList = "1, 2, 3, 4, 5";
+        
+        var arrayList = stringList.split(", ");
+        // ["1", "2", "3", "4", "5"]
+        
+        var backToString = arrayList.join(";");
+        // "1;2;3;4;5"
+    </pre>
+
+    </div>
+    </main>
+
+    <script>
+    </script>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>

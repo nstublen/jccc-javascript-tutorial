@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>JavaScript</title>	
+
+	<script src="../js/shCore.js"></script>
+	<script src="../js/shBrushJScript.js"></script>
+	<link href="../css/styles.css" rel="stylesheet" />
+	<link href="../css/shCore.css" rel="stylesheet" />
+	<link href="../css/shThemeDefault.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header data-section="more-javascript"><h1></h1><nav></nav></header>
+    
+    <main class="scroll-wrapper">
+    <div class="scrollable">
+    
+	<h2>The <code>Math</code> Object</h2>
+
+	<p>
+		Common mathematical operations can be performed using the
+        JavaScript <code>Math</code> object.
+	</p>
+
+	<pre class="brush: js">
+        var pi = Math.PI;               // PI constant
+        Math.floor(pi);                 // Round down (3)
+        Math.round(pi);                 // Round to nearest (3)
+        Math.ceil(pi);                  // Round up (4)
+        
+        Math.random();                  // Random between [0, 1)
+        
+        Math.min(4, 2, 7, -1, 0, -6);   // Minimum value (-6)
+        Math.max(4, 2, 7, -1, 0, -6);   // Maximum value (7)
+    </pre>
+
+    <div class="progressive1">
+    <p>
+        If we want a random integer between 1 and 10, we can use the
+        random and rounding functions.
+    </p>
+
+	<pre class="brush: js">
+        var value = Math.floor((Math.random() * 10) + 1);
+    </pre>
+    </div>
+
+    </div>
+    </main>
+
+    <script>
+    </script>
+
+	<script src="../js/nav.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+</body>
+
+</html>
